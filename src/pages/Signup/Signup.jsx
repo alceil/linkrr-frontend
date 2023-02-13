@@ -1,5 +1,6 @@
 import React from 'react'
 import style from './styles.module.css'
+import { Link } from "react-router-dom";
 const Signup = () => {
   return (
     <div className={style.Container}>
@@ -12,7 +13,9 @@ const Signup = () => {
     <input type="password" placeholder='Password' className={style.input_field}/>
       <button className={style.signup_btn}>Sign Up</button>
     </form>
+    <Link to="/" style={{ textDecoration: 'none' }}>
     <h2 className={style.signup_content}>Already on Linkrr? Log In</h2>
+    </Link>
     </div>
 
   </div>
