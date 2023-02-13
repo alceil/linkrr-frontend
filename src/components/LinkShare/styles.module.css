@@ -1,0 +1,26 @@
+.share_link{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: #ffff;
+    border-radius: 10px;
+    margin: 5px;
+    width: 100%;
+}
+
+.link{
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.bio_container{
+    background-color: #ffff;
+    border-radius: 10px;
+    margin: 5px;
+    width: 100%;
+}
+
+.changeprofile_container{
+    
+}
