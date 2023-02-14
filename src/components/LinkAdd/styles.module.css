@@ -1,0 +1,27 @@
+.link_container{
+    display: flex;
+    align-items: center;
+}
+
+.addlink_btn{
+    flex: 0 0 79%;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: #7964ff;
+    color: white;
+    margin: 5px;
+}
+
+.explore_btn{
+    font-weight: bold;
+    padding: 8px 16px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    margin: 5px;
+}
