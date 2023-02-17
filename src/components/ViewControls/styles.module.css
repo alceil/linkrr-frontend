@@ -1,0 +1,20 @@
+.viewcontrols_container{
+    display: flex;
+    flex-direction: row;
+    background-color: #ffff;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+    width: 100%;
+    padding: 16px;
+}
+
+.viewcontrols_btn{
+    display: flex;
+    align-items: center;
+}
+
+.btn_title{
+    margin-left: 5px;
+}
