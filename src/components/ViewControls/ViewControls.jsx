@@ -15,7 +15,6 @@ const  ViewControls = () => {
 
 {
   showDesign?(
-
     <div className={style.viewcontrols_btn} onClick={()=>setShowDesign(!showDesign)}>
     <HiOutlineLink/>
     <span className={style.btn_title}>Links</span>
