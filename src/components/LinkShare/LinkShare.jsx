@@ -5,7 +5,7 @@ import { BiCopy } from "react-icons/bi";
 const LinkShare = () => {
   return (
     <div className={style.share_link}>
-    <h1 className={style.link}>https://linkpile-bffd7.web.app/alceil</h1>
+    <a href ="https://linkpile-bffd7.web.app/alceil" className={style.link}>https://linkpile-bffd7.web.app/alceil</a>
     <BiCopy/>
               </div>
   )

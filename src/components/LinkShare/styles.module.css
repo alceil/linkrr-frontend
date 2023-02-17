@@ -7,6 +7,7 @@
     border-radius: 10px;
     margin: 5px;
     width: 100%;
+    padding: 16px;
 }
 
 .link{
@@ -14,13 +15,3 @@
     margin-left: 10px;
 }
 
-.bio_container{
-    background-color: #ffff;
-    border-radius: 10px;
-    margin: 5px;
-    width: 100%;
-}
-
-.changeprofile_container{
-    
-}
