@@ -1,0 +1,79 @@
+.btn_editor{
+    display: flex;
+    flex-direction: row;
+    background-color: #ffff;
+    border-radius: 10px;
+    margin: 5px;
+    width: 100%;
+    padding: 16px;
+
+}
+
+.btncolour_editor{
+    display: flex;
+    flex-direction: column;   
+}
+
+
+.colors{
+    display: flex;
+    justify-content: space-evenly;
+    }
+    
+    .colorbox{
+        height: 24px;
+        width: 24px;
+    border-radius: 2px;
+    margin: 5px;
+    border: 2px;
+    border-style: solid;
+    border-width: thin;
+    border-color: grey;
+    }
+    
+    .blue{
+        background-color: blue;
+     }
+    
+    .red{
+        background-color: red;
+    }
+    
+    .green{
+        background-color: green;
+    }
+    
+    .purple{
+        background-color: purple;
+    }
+
+    .btn_styles_group{
+        display:grid;
+        grid-template-columns: 200px 200px;
+        grid-row: auto auto;
+    
+    }
+    
+    
+    
+    
+    
+    .btn_style{
+        font-weight: bold;
+        padding: 8px 16px;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        background-color: red;
+        color: black;
+        margin: 5px;
+    }
+    .round_btn{
+        border-radius: 20px;
+        }
+    
+    .outline_btn{
+        border-color: red;
+        border-style: solid;
+        background-color: white;
+    }
