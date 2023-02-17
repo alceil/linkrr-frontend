@@ -1,6 +1,8 @@
 import React from 'react'
 import style from './styles.module.css'
+import { useAdmin } from "../../contexts/adminContext";
 const BioEdit = () => {
+  const { state, dispatch } = useAdmin();
   return (
 <div className={style.bio_container}>
 
@@ -17,9 +19,26 @@ const BioEdit = () => {
 
 </div>
 <label  className={style.bio_label}>Profile Title</label>
-<input type="name" placeholder='@yourname' className={style.bio_input_field}/>
+<input type="name" placeholder='@yourname' className={style.bio_input_field} 
+ onChange={(e) =>
+  dispatch({
+    type: "field",
+    field: "profileName",
+    value: e.target.value,
+  })
+}
+/>
 <label  className={style.bio_label}>Profile Description</label>
-    <textarea className={style.bio_input_field} placeholder='Bio'>
+    <textarea 
+    className={style.bio_input_field} 
+    placeholder='Bio'
+    onChange={(e) =>
+      dispatch({
+        type: "field",
+        field: "about",
+        value: e.target.value,
+      })}
+    >
 
     </textarea>
 </div>
