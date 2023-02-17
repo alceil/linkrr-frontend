@@ -1,0 +1,58 @@
+.background_editor{
+    display: flex;
+    flex-direction: row;
+    background-color: #ffff;
+    border-radius: 10px;
+    margin: 5px;
+    width: 100%;
+    padding: 16px;
+
+}
+
+.backgroundcolour_editor{
+    display: flex;
+    flex-direction: column;   
+}
+
+.colors{
+    display: flex;
+    justify-content: space-evenly;
+    }
+    
+    .colorbox{
+    height: 24px;
+    width: 24px;
+    border-radius: 2px;
+    margin: 5px;
+    border: 2px;
+    border-style: solid;
+    border-width: thin;
+    border-color: grey;
+    }
+
+    .blue{
+        background-color: blue;
+     }
+    
+    .red{
+        background-color: red;
+    }
+    
+    .green{
+        background-color: green;
+    }
+    
+    .purple{
+        background-color: purple;
+    }
+
+    .bg_btn{
+        font-weight: bold;
+        padding: 8px 16px;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        background-color: #7964ff;
+        color: white;
+        margin: 5px;
+    }
