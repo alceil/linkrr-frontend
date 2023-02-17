@@ -2,13 +2,25 @@ import React from 'react'
 import { HexColorPicker } from "react-colorful";
 import style from './styles.module.css'
 import { BiImageAdd } from "react-icons/bi";
+import { useAdmin } from '../../contexts/adminContext';
 
 const BackgroundEditor = () => {
+  const { state,dispatch} = useAdmin();
+  const {appearance} = state;
   return (
 <div className={style.background_editor}>
   <div className={style.backgroundcolour_editor}>
 <HexColorPicker
 style={{ width: "100%" }}
+
+onChange={(color)=>{
+                  dispatch({
+                  type: "field",
+                  field: "appearance",
+                  value: { ...appearance, backgroundColor: color },
+                });
+
+}}
 />
 <div className={style.colors}>
 

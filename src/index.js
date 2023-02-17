@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { AdminProvider } from "./contexts/";
+import { AdminProvider } from "./contexts/adminContext";
+import { ViewProvider } from "./contexts/viewContext";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+
+    <ViewProvider>
+
     <AdminProvider>
 
   <Router>
@@ -14,6 +18,8 @@ root.render(
     
     </Router>  
     </AdminProvider>
+    </ViewProvider>
+
 
   </React.StrictMode>
 );
