@@ -7,12 +7,16 @@ import LinkShare from '../../components/LinkShare/LinkShare'
 import MobilePreview from '../../components/MobilePreview/MobilePreview'
 import ViewControls from '../../components/ViewControls/ViewControls'
 import style from './styles.module.css'
-import { useEffect, useState } from "react";
+
 import BackgroundEditor from '../../components/BackgroundEditor/BackgroundEditor';
 import FontColorEditor from '../../components/FontColorEditor/FontColorEditor';
 import ButtonEditor from '../../components/ButtonEditor/ButtonEditor'
 import ButtonFontEditor from '../../components/ButtonFontEditor/ButtonFontEditor'
 import { useView } from '../../contexts/viewContext'
+import { GoTrashcan } from "react-icons/go";
+import { MdDragIndicator } from "react-icons/md";
+import { HiOutlinePencil } from "react-icons/hi";
+import EditableLinkCard from '../../components/EditableLinkCard/EditableLinkCard'
 
 
 const Admin = () => {
@@ -36,6 +40,9 @@ showDesign?
   <>
 <BioEdit/>
 <LinkAdd/>
+
+<EditableLinkCard/>
+
 <AddSocials/>
   </>
 )

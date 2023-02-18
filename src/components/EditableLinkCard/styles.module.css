@@ -1,0 +1,106 @@
+.editable_linkcard_preview{
+    display: flex;
+    flex-direction: row;
+justify-content: space-between; 
+align-items: center;
+ background-color: #ffff;
+    border-radius: 10px;
+    margin: 5px;
+    width: 100%;
+    padding: 16px;
+}
+.editable_linkcard{
+    display: flex;
+    flex-direction: column;
+
+ background-color: #ffff;
+    border-radius: 10px;
+    margin: 5px;
+    width: 100%;
+    padding: 16px;
+}
+
+.editbtn_group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit_icon{
+    margin-top: 5px;
+}
+
+  .checkbox_label {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+}
+
+.checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkbox_span {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #9CA3Af;
+    transition: 0.3s;
+    border-radius: 30px;
+}
+
+.checkbox_span:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3.5px;
+    bottom: 3.5px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: 0.3s;
+  }
+  
+  .checkbox:checked + .checkbox_span {
+    background-color: #7964ff;
+  }
+  
+  .checkbox:checked + .checkbox_span:before {
+    transform: translateX(18px);
+  }
+.editablelinkcard_inputfield{
+    border: none;
+    outline: none;
+    border-radius: 5px;
+background-color: #e5e7eb;
+padding: 16px;
+margin: 10px;
+}
+
+.editcard_btn{
+    flex: 0 0 45%;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: #7964ff;
+    color: white;
+    margin: 5px;
+}
+
+.btn_group{
+    display: flex;
+    
+}
+
+.editable_linkcard_container{
+    display: flex;
+    align-items: center;
+}
