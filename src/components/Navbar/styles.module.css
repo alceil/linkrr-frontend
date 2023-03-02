@@ -1,11 +1,35 @@
 .nav_container{
+    /* position: sticky;
+     top: 0; */
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
     height: 70px;
 }
 
 .logo{
-    position: absolute;
     color: green;
+}
 
+.nav_btn{
+    font-weight: bold;
+    padding: 8px 16px;
+    border: none;
+    outline: none;
+    border-radius: 50px;
+    background-color: #7964ff;
+    color: white;
+    margin: 5px;
+}
 
-
+.logout_btn{
+    font-weight: bold;
+    padding: 8px 16px;
+    border: none;
+    font-size: large;
+    background-color: white;
+    outline: none;
+    border-radius: 50px;
+    color: #7964ff;
+    margin: 5px;
 }

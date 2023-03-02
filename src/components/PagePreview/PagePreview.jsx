@@ -9,9 +9,13 @@ import {
   FiFacebook,
 } from "react-icons/fi";
 import { BsPersonFill } from "react-icons/bs";
+import { HiOutlinePencil } from "react-icons/hi";
 import LinkCard from '../LinkCard/LinkCard';
-const MobilePreview = () => {
-const { state} = useAdmin();
+import { useView } from '../../contexts/viewContext';
+
+
+const PagePreview = () => {
+    const { state} = useAdmin();
 const {  profileName,about,socials,appearance,links,imgSrc} = state;
 const { 
   background,
@@ -20,7 +24,7 @@ const {
   linkColor, 
   linkFontColor, 
   linkStyle } = appearance;
-
+  const {pagePreview, setPagePreview} = useView();
   return (
     <div style=
     {
@@ -32,7 +36,11 @@ const {
         backgroundSize: "cover",
         color: fontColor,
       }
-    } className={style.mobilepreview_container}>
+    } className={style.pagepreview_container}>
+<button className={style.editbtn} onClick={()=>setPagePreview(!pagePreview)}>
+<HiOutlinePencil/>
+Editor
+</button>
     <div className={style.profilepic_container}>
         {imgSrc?(<img
     className={style.profile_avatar}
@@ -133,4 +141,4 @@ size={25}
   )
 }
 
-export default MobilePreview
+export default PagePreview

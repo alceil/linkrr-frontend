@@ -5,7 +5,7 @@ const initialState={
     imgSrc: "",
     profileName: "@alceil",
     about: "",
-    links: null,
+    links: [],
     appearance: {
       background: "",
       linkStyle: "",

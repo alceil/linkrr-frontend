@@ -13,17 +13,20 @@ import FontColorEditor from '../../components/FontColorEditor/FontColorEditor';
 import ButtonEditor from '../../components/ButtonEditor/ButtonEditor'
 import ButtonFontEditor from '../../components/ButtonFontEditor/ButtonFontEditor'
 import { useView } from '../../contexts/viewContext'
-import { GoTrashcan } from "react-icons/go";
-import { MdDragIndicator } from "react-icons/md";
-import { HiOutlinePencil } from "react-icons/hi";
 import EditableLinkCard from '../../components/EditableLinkCard/EditableLinkCard'
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import { useAdmin } from '../../contexts/adminContext';
+import PagePreview from '../../components/PagePreview/PagePreview'
 
 
 const Admin = () => {
-
-  const {showDesign, setShowDesign } = useView();
+  const { state,dispatch} = useAdmin();
+  const {showDesign,pagePreview } = useView();
+  const {links} = state;
   return (
-    <div className={style.main_container}>
+    pagePreview?(<PagePreview/>):
+    (
+      <div className={style.main_container}>
         <div className={style.left_container}>
 <LinkShare/>
 {
@@ -40,8 +43,59 @@ showDesign?
   <>
 <BioEdit/>
 <LinkAdd/>
+{links?.map((link, index) => {
 
-<EditableLinkCard/>
+return (
+  <EditableLinkCard
+  key={link.title || index}
+  id={index}
+  Link={link}
+  />
+
+);
+})}
+{/* <DragDropContext
+        onDragEnd={(param) => {
+          const srcI = param.source.index;
+          const desI = param.destination?.index;
+          const newLinks = [...links];
+          const draggeditem = newLinks.splice(srcI, 1);
+          newLinks.splice(desI, 0, ...draggeditem);
+          dispatch({ type: "field", field: "links", value: newLinks });
+        }}
+      >
+        <Droppable droppableId="dropable-1">
+          {(provided, _) => (
+            <div
+              key="dropable-1"
+              className="my-2 flex w-full flex-col space-y-4"
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+            >
+              {links?.map((link, index) => {
+
+                return (
+                  <EditableLinkCard
+                  key={link.title || index}
+                  id={index}
+                  Link={link}
+                  />
+                  // <LinkCardEditable
+                  //   key={link.title || index}
+                  //   id={index}
+                  //   Link={link}
+                  // />
+                );
+              })}
+
+
+              
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext> */}
+
 
 <AddSocials/>
   </>
@@ -56,6 +110,9 @@ showDesign?
 </div>
         </div>
     </div>
+    )
+
+    
   )
 }
 

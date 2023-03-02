@@ -31,32 +31,12 @@
     border-color: grey;
     }
     
-    .blue{
-        background-color: blue;
-     }
-    
-    .red{
-        background-color: red;
-    }
-    
-    .green{
-        background-color: green;
-    }
-    
-    .purple{
-        background-color: purple;
-    }
-
     .btn_styles_group{
         display:grid;
         grid-template-columns: 200px 200px;
         grid-row: auto auto;
     
     }
-    
-    
-    
-    
     
     .btn_style{
         font-weight: bold;

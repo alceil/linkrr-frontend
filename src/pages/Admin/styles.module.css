@@ -13,10 +13,14 @@
 }
 
 .right_container{
+    position: fixed;
+    right:200px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex: 0 20 40%;
-    margin-left: 100px;
+    /* flex: 0 20 40%;
+    margin-left: 100px; */
 }
+
+
 

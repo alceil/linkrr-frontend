@@ -5,10 +5,11 @@ import './index.css';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { AdminProvider } from "./contexts/adminContext";
 import { ViewProvider } from "./contexts/viewContext";
+import { AuthProvider } from './contexts/authContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-
+<AuthProvider>
     <ViewProvider>
 
     <AdminProvider>
@@ -19,7 +20,7 @@ root.render(
     </Router>  
     </AdminProvider>
     </ViewProvider>
-
+    </AuthProvider>
 
   </React.StrictMode>
 );

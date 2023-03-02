@@ -2,12 +2,77 @@ import React from 'react'
 import style from './styles.module.css'
 import { GoTrashcan } from "react-icons/go";
 import { MdDragIndicator } from "react-icons/md";
+import { Draggable } from "react-beautiful-dnd";
 import { HiOutlinePencil } from "react-icons/hi";
-import {  useState } from "react";
-const EditableLinkCard = () => {
-    const [isToggled, toggle] = useState(false)
+import {  useEffect,useState } from "react";
+import { useAdmin } from '../../contexts/adminContext';
+const EditableLinkCard = ({id,Link}) => {
     const [showEditCard, setShowEditCard] = useState(false)
+    const { state, dispatch } = useAdmin();
+    const { links } = state;
+  
+    const [title, setTitle] = useState("");
+    const [link, setLink] = useState("");
+    const [description, setDescription] = useState("");
+    const [active, setActive] = useState(false);
+  
+    const handleEdit = (value) => {
+      const updatedLinks = links;
+  
+      updatedLinks[id] = value;
+  
+      dispatch({ type: "field", field: "links", value: updatedLinks });
+    };
+  
+    const handleRemoveLink = () => {
+      const updatedLinks = links.filter((_, index) => id !== index);
+  
+      dispatch({ type: "field", field: "links", value: updatedLinks });
+    };
+  
+    const handleSave = () => {
+      handleEdit({
+        title: title,
+        link: link,
+        description: description,
+        active: active,
+      });
+      setShowEditCard(!showEditCard)
+    };
+  
+    const handleCancel = () => {
+      setTitle(Link.title);
+      setLink(Link.link);
+      setDescription(Link.description);
+      setActive(Link.active);
+      setShowEditCard(!showEditCard)
+    };
+  
+    const handleChecked = (e) => {
+      setActive(e.target.checked);
+      handleEdit({
+        title: title,
+        link: link,
+        description: description,
+        active: e.target.checked,
+      });
+    };
+
+    useEffect(() => {
+        console.log("Useeffect triggrere")
+        if (Link) {
+          setTitle(Link.title);
+          setLink(Link.link);
+          setDescription(Link.description);
+          setActive(true);
+        }
+      }, [Link]);
   return (
+    // <Draggable
+    // key={Link.title || id}
+    // draggableId={Link.title || `${id}`}
+    // index={id}
+    // >
 <div className={style.editable_linkcard_container}>
 
 {
@@ -16,47 +81,29 @@ const EditableLinkCard = () => {
 <input 
     type="name" 
     placeholder='Title' 
-    // value={twitter} 
+    value={title} 
     className={style.editablelinkcard_inputfield}
-    // onChange={(e) =>
-    //   dispatch({
-    //     type: "field",
-    //     field: "socials",
-    //     value: { ...state.socials, twitter: e.target.value },
-    //   })
-    // }
+    onChange={(e) => setTitle(e.target.value)}
     />
 
 <input 
     type="name" 
     placeholder='Url' 
-    // value={twitter} 
+    value={link} 
     className={style.editablelinkcard_inputfield}
-    // onChange={(e) =>
-    //   dispatch({
-    //     type: "field",
-    //     field: "socials",
-    //     value: { ...state.socials, twitter: e.target.value },
-    //   })
-    // }
+    onChange={(e) => setLink(e.target.value)}
     />
     
 <input 
     type="name" 
     placeholder='Description' 
-    // value={twitter} 
+    value={description} 
     className={style.editablelinkcard_inputfield}
-    // onChange={(e) =>
-    //   dispatch({
-    //     type: "field",
-    //     field: "socials",
-    //     value: { ...state.socials, twitter: e.target.value },
-    //   })
-    // }
+    onChange={(e) => setDescription(e.target.value)}
     />
     <div className={style.btn_group}>
-<button className={style.editcard_btn} onClick={()=>{setShowEditCard(!showEditCard)}}>Cancel</button>
-<button className={style.editcard_btn}>Save</button>
+<button className={style.editcard_btn} onClick={handleCancel}>Cancel</button>
+<button className={style.editcard_btn}  onClick={handleSave}>Save</button>
 </div>
   </div>
   ):(
@@ -64,10 +111,10 @@ const EditableLinkCard = () => {
     <HiOutlinePencil onClick={()=>{setShowEditCard(!showEditCard)}}/>
     <div className={style.editbtn_group}>
     <label className={style.checkbox_label}>
-                <input type="checkbox" className={style.checkbox} defaultChecked={isToggled} onClick={()=>toggle(!isToggled)} />
+                <input type="checkbox" className={style.checkbox} checked={active}  onChange={handleChecked} />
                 <span className={style.checkbox_span}/>
             </label>
-    <GoTrashcan className={style.edit_icon}/>
+    <GoTrashcan className={style.edit_icon} onClick={handleRemoveLink}/>
     
     </div>
       </div>
@@ -76,6 +123,7 @@ const EditableLinkCard = () => {
 }
 <MdDragIndicator size={40}/>
 </div>
+// </Draggable>
   )
 }
 

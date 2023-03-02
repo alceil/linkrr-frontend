@@ -9,7 +9,7 @@ import {
 } from "react-icons/hi";
 const  ViewControls = () => {
   
-  const {showDesign, setShowDesign } = useView();
+  const {showDesign, setShowDesign,pagePreview, setPagePreview } = useView();
   return (
     <div className={style.viewcontrols_container}>
 
@@ -29,7 +29,7 @@ const  ViewControls = () => {
 
 }
 
-    <div className={style.viewcontrols_btn}>
+    <div className={style.viewcontrols_btn} onClick={()=>setPagePreview(!pagePreview)}>
     <BsEye/>
     <span className={style.btn_title}>Preview</span>
     </div>
