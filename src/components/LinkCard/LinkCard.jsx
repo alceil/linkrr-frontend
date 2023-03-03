@@ -10,6 +10,7 @@ const LinkCard = ({  link,linkStyle,linkColor,linkFontColor}) => {
     background: linkStyle.filled ? linkColor : "",
     border: linkStyle.filled ? "none" : `2px solid ${linkColor}`,
     color: linkFontColor,
+    borderRadius: linkStyle.rounded ? "20px":"10px"
   }}>
 <p className={style.linkCard_title}>{link.title}</p>
 <p className={style.linkCard_description}>{link.description}</p>
