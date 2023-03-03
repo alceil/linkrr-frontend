@@ -7,9 +7,36 @@ import {
   HiOutlineLink,
   HiOutlineUpload,
 } from "react-icons/hi";
+import { ImSpinner } from "react-icons/im";
+import { useAdmin } from '../../contexts/adminContext';
+import { useData } from '../../contexts/dataContext';
 const  ViewControls = () => {
-  
+  const { userData, updateProfile } = useData();
+  const { state, dispatch } = useAdmin();
+  const { profileName, about, links, appearance, socials, loading } =
+    state;
   const {showDesign, setShowDesign,pagePreview, setPagePreview } = useView();
+  const handleUpdate = async (event) => {
+    event.preventDefault();
+
+    dispatch({ type: "update" });
+
+    try {
+      await updateProfile({
+        page: {
+          ...userData.page,
+          profileName: profileName,
+          about: about,
+          links: links,
+          appearance: appearance,
+          socials: socials,
+        },
+      });
+      dispatch({ type: "success" });
+    } catch (error) {
+      dispatch({ type: "error", error: error.message });
+    }
+  };
   return (
     <div className={style.viewcontrols_container}>
 
@@ -33,9 +60,19 @@ const  ViewControls = () => {
     <BsEye/>
     <span className={style.btn_title}>Preview</span>
     </div>
-    <div className={style.viewcontrols_btn}>
-    <HiOutlineUpload/>
-    <span className={style.btn_title}>Save</span>
+    <div 
+    className={style.viewcontrols_btn}
+    onClick={handleUpdate}>
+   {loading ? (
+                <ImSpinner />
+              ) : (
+                <HiOutlineUpload
+            
+                />
+              )}
+    <span className={style.btn_title}>
+    {loading ? "Saving" : "Save"}
+      </span>
     </div>
   </div>
   )

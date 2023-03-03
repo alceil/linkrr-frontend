@@ -22,13 +22,13 @@ import PagePreview from '../../components/PagePreview/PagePreview'
 const Admin = () => {
   const { state,dispatch} = useAdmin();
   const {showDesign,pagePreview } = useView();
-  const {links} = state;
+  const {links,username} = state;
   return (
     pagePreview?(<PagePreview/>):
     (
       <div className={style.main_container}>
         <div className={style.left_container}>
-<LinkShare/>
+<LinkShare username={username}/>
 {
 showDesign?
 (

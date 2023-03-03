@@ -5,7 +5,7 @@ import { BsPersonFill } from "react-icons/bs";
 const BioEdit = () => {
   const uploader = useRef(null);
   const { state, dispatch } = useAdmin();
-   const {  imgFile,imgSrc} =state;
+   const { profileName,about, imgFile,imgSrc} =state;
   const handleFile = (event) => {
     event.preventDefault();
 
@@ -66,18 +66,23 @@ const BioEdit = () => {
 
 </div>
 <label  className={style.bio_label}>Profile Title</label>
-<input type="name" placeholder='@yourname' className={style.bio_input_field} 
- onChange={(e) =>
-  dispatch({
-    type: "field",
-    field: "profileName",
-    value: e.target.value,
-  })
+<input 
+  type="name"
+  value={profileName} 
+  placeholder='@yourname' 
+  className={style.bio_input_field} 
+  onChange={(e) =>
+    dispatch({
+      type: "field",
+      field: "profileName",
+      value: e.target.value,
+    })
 }
 />
 <label  className={style.bio_label}>Profile Description</label>
     <textarea 
     className={style.bio_input_field} 
+    value={about}
     placeholder='Bio'
     onChange={(e) =>
       dispatch({

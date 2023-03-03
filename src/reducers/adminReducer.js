@@ -3,7 +3,7 @@ const initialState={
     bgImgFile: null,
     username: "",
     imgSrc: "",
-    profileName: "@alceil",
+    profileName: "",
     about: "",
     links: [],
     appearance: {
@@ -34,23 +34,23 @@ const adminReducer=(state,action)=>{
             ...state,
             [action.field]: action.value,
           };
-        // case "update":
-        //   return {
-        //     ...state,
-        //     loading: true,
-        //   };
-        // case "success":
-        //   return {
-        //     ...state,
-        //     loading: false,
-        //     imgFile: null,
-        //     bgImgFile: null,
-        //   };
-        // case "error":
-        //   return {
-        //     ...state,
-        //     error: action.error,
-        //   };
+        case "update":
+          return {
+            ...state,
+            loading: true,
+          };
+        case "success":
+          return {
+            ...state,
+            loading: false,
+            imgFile: null,
+            bgImgFile: null,
+          };
+        case "error":
+          return {
+            ...state,
+            error: action.error,
+          };
         default:
           break;
       }

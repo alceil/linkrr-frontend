@@ -12,7 +12,7 @@ import { BsPersonFill } from "react-icons/bs";
 import LinkCard from '../LinkCard/LinkCard';
 const MobilePreview = () => {
 const { state} = useAdmin();
-const {  profileName,about,socials,appearance,links,imgSrc} = state;
+const {  username,profileName,about,socials,appearance,links,imgSrc} = state;
 const { 
   background,
   backgroundColor, 
@@ -42,7 +42,7 @@ const {
       <BsPersonFill size={30}/>  
       </div>)
   }
-      <span className={style.profile_username}>{profileName}</span>
+      <span className={style.profile_username}>{profileName?profileName:username}</span>
     </div>
 <p className={style.about}>
   {about}

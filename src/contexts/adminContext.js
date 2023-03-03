@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useReducer, useEffect } from "react";
 import { initialState, adminReducer } from "../reducers/adminReducer";
+import { useData } from "./dataContext";
 const AdminContext = createContext()
 export function useAdmin() {
     return useContext(AdminContext);
@@ -7,48 +8,48 @@ export function useAdmin() {
 
 
 export function AdminProvider({ children }) {
-
+  const { userData } = useData();
     const [state, dispatch] = useReducer(adminReducer, initialState);
   
-    // useEffect(() => {
-    //   if (userData) {
-    //     dispatch({
-    //       type: "field",
-    //       field: "username",
-    //       value: userData.username || state.username,
-    //     });
-    //     dispatch({
-    //       type: "field",
-    //       field: "imgSrc",
-    //       value: userData.page.imgSrc || state.imgSrc,
-    //     });
-    //     dispatch({
-    //       type: "field",
-    //       field: "profileName",
-    //       value: userData.page.profileName || state.profileName,
-    //     });
-    //     dispatch({
-    //       type: "field",
-    //       field: "about",
-    //       value: userData.page.about || state.about,
-    //     });
-    //     dispatch({
-    //       type: "field",
-    //       field: "appearance",
-    //       value: userData.page.appearance || state.appearance,
-    //     });
-    //     dispatch({
-    //       type: "field",
-    //       field: "socials",
-    //       value: userData.page.socials || state.socials,
-    //     });
-    //     dispatch({
-    //       type: "field",
-    //       field: "links",
-    //       value: userData.page.links || state.links,
-    //     });
-    //   }
-    // }, [userData]);
+    useEffect(() => {
+      if (userData) {
+        dispatch({
+          type: "field",
+          field: "username",
+          value: userData.username || state.username,
+        });
+        dispatch({
+          type: "field",
+          field: "imgSrc",
+          value: userData.page.imgSrc || state.imgSrc,
+        });
+        dispatch({
+          type: "field",
+          field: "profileName",
+          value: userData.page.profileName || state.profileName,
+        });
+        dispatch({
+          type: "field",
+          field: "about",
+          value: userData.page.about || state.about,
+        });
+        dispatch({
+          type: "field",
+          field: "appearance",
+          value: userData.page.appearance || state.appearance,
+        });
+        dispatch({
+          type: "field",
+          field: "socials",
+          value: userData.page.socials || state.socials,
+        });
+        dispatch({
+          type: "field",
+          field: "links",
+          value: userData.page.links || state.links,
+        });
+      }
+    }, [userData]);
   
     const value = { state, dispatch };
   

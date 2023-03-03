@@ -18,7 +18,7 @@ const Signup = () => {
         try {
           await signUp({username,email, password});
           dispatch({ type: "success" });
-          navigate("admin");
+          navigate("/admin");
         } catch (error) {
           const message = error.message
             .split(/(?<=\/)(.*?)(?=\))/gm)[1]

@@ -17,29 +17,39 @@ export function AuthProvider({ children }) {
             "http://localhost:5000/auth/register",initialData);
             console.log(initialData)
             console.log(response)
-          if (response.data.success) {
-            localStorage.setItem(
-              "login",
-              JSON.stringify({
-                token: response.data.user.token,
-                isUserLoggedIn: true
-              })
-            );
             console.log(response.data.user)
             console.log("user signed up");
             setCurrentUser(response.data.user)
-            // customToast("User SignUp Successful!");
-          }
+        } catch (error) {
+          console.log("Error occured: ", error.message);
+          return Promise.reject(error.message);
+        }
+  
+    }
+
+    async function logIn(initialData)
+    {
+      try {
+          const response = await axios.post(
+            "http://localhost:5000/auth/login",initialData);
+            console.log(initialData)
+            console.log(response)
+            console.log(response.data.user)
+            console.log("user signed up");
+            setCurrentUser(response.data.user)
           // return response.data;
         } catch (error) {
           console.log("Error occured: ", error.message);
-          // return Promise.reject(error.message);
+          return Promise.reject(error.message);
         }
   
     }
     const value = 
     {
-        currentUser, setCurrentUser
+      currentUser, 
+      setCurrentUser,
+      signUp,
+      logIn
      };
   
     return (

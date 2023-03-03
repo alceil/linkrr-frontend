@@ -6,10 +6,14 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { AdminProvider } from "./contexts/adminContext";
 import { ViewProvider } from "./contexts/viewContext";
 import { AuthProvider } from './contexts/authContext';
+import { DataProvider } from './contexts/dataContext';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+
 <AuthProvider>
+<DataProvider>
+
     <ViewProvider>
 
     <AdminProvider>
@@ -20,6 +24,8 @@ root.render(
     </Router>  
     </AdminProvider>
     </ViewProvider>
+    </DataProvider>
+
     </AuthProvider>
 
   </React.StrictMode>
