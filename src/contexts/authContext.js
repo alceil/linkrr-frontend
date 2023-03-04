@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState} from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const AuthContext = createContext()
 export function useAuth() {
     return useContext(AuthContext);
@@ -41,15 +42,21 @@ export function AuthProvider({ children }) {
         } catch (error) {
           console.log("Error occured: ", error.message);
           return Promise.reject(error.message);
-        }
-  
+        }  
+    }
+
+
+    async function logOut(){
+      console.log("called")
+setCurrentUser(null);
     }
     const value = 
     {
       currentUser, 
       setCurrentUser,
       signUp,
-      logIn
+      logIn,
+      logOut
      };
   
     return (

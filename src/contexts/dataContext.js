@@ -27,28 +27,11 @@ export function DataProvider({ children }) {
         }
       }, [currentUser]);
 
-      async function updateProfile(initialData)
-      {
-        console.log("update called")
-        console.log(initialData)
+      async function updateProfile(initialData){
         try {
             const response = await axios.put(
               `http://localhost:5000/auth/updateProfilePage/${userData._id}`,initialData);
-              console.log(initialData)
               console.log(response)
-            if (response.data.success) {
-              // localStorage.setItem(
-              //   "login",
-              //   JSON.stringify({
-              //     token: response.data.user.token,
-              //     isUserLoggedIn: true
-              //   })
-              // );
-              // console.log(response.data.user)
-              // console.log("user signed up");
-              // setCurrentUser(response.data.user)
-              // customToast("User SignUp Successful!");
-            }
             // return response.data;
           } catch (error) {
             console.log("Error occured: ", error.message);
@@ -56,12 +39,33 @@ export function DataProvider({ children }) {
           }
     
       }
+      const getImageUrl =async (file) => {
+        let reader = new FileReader();
+        let imageUrl = '';
+        reader.readAsDataURL(file);
+    
+        reader.onload = async () => {
+          const formData = new FormData();
+          formData.append(
+            "image",
+            reader.result.slice(file.type === "image/png" ? 22 : 23)
+          );
+          formData.append("name", file.name);
+          formData.append("key", process.env.REACT_APP_PUBLIC_IMGBB_STORAGE_KEY);
+          console.log(process.env.REACT_APP_PUBLIC_IMGBB_STORAGE_KEY);
+          const response =await axios
+            .post("https://api.imgbb.com/1/upload", formData);
+            imageUrl = response.data.data.url;
+        };
 
+
+      };
 
     const value =
      {
       userData,
-      updateProfile
+      updateProfile,
+      getImageUrl
     };
   
     return (

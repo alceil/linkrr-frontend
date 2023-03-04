@@ -3,11 +3,14 @@ import { HexColorPicker } from "react-colorful";
 import style from './styles.module.css'
 import { BiImageAdd } from "react-icons/bi";
 import { useAdmin } from '../../contexts/adminContext';
+import axios from "axios";
+import { useData } from '../../contexts/dataContext';
 
 const BackgroundEditor = () => {
   const uploader = useRef(null);
   const { state,dispatch} = useAdmin();
-  const {appearance,bgImgFile} = state;
+  const { userData, updateProfile } = useData();
+  const {appearance,bgImgFile,loading} = state;
   const {backgroundColor,background} = appearance;
     const backgroundPresetColors = [
     "#000000",
@@ -45,13 +48,60 @@ const BackgroundEditor = () => {
       value: { ...appearance, background: null },
     });
 
-    // await updateProfile(userData.userId, {
-    //   page: {
-    //     ...userData.page,
-    //     appearance: { ...userData.page.appearance, background: null },
-    //   },
-    // });
+    await updateProfile( {
+      page: {
+        ...userData.page,
+        appearance: { ...userData.page.appearance, background: null },
+      },
+    });
   };
+
+  const handleUpload = async () => {
+    dispatch({ type: "update" });
+
+    if (bgImgFile) {
+      try {
+let reader = new FileReader();
+reader.readAsDataURL(bgImgFile);
+
+reader.onload = async () => {
+  const formData = new FormData();
+  formData.append(
+    "image",
+    reader.result.slice(bgImgFile.type === "image/png" ? 22 : 23)
+  );
+  formData.append("name", bgImgFile.name);
+  formData.append("key", process.env.REACT_APP_PUBLIC_IMGBB_STORAGE_KEY);
+  console.log(process.env.REACT_APP_PUBLIC_IMGBB_STORAGE_KEY);
+  const response =await axios
+    .post("https://api.imgbb.com/1/upload", formData);
+  
+    let imageUrl = response.data.data.url;
+if(imageUrl){
+  console.log("profile updated")
+  await updateProfile({
+    page: {
+      ...userData.page,
+      appearance: {
+        ...userData.page.appearance,
+        background: imageUrl,
+      },
+    },
+  }
+  ); 
+}
+
+   
+};
+
+
+        dispatch({ type: "success" });
+      } catch (error) {
+        dispatch({ type: "error", error: error.message });
+      }
+    }
+  };
+
 
   useEffect(() => {
     if (bgImgFile) {
@@ -68,6 +118,8 @@ const BackgroundEditor = () => {
       reader.readAsDataURL(bgImgFile);
     }
   }, [bgImgFile]);
+
+
   return (
 <div className={style.background_editor}>
   <div className={style.backgroundcolour_editor}>
@@ -122,7 +174,30 @@ onChange={(color)=>{
     )
     }
     <div className={style.bg_btngrp}>
-    <button 
+
+
+
+
+      {
+        bgImgFile?
+        (
+          <>
+            <button 
+    className={style.bg_btn}
+    onClick={handleCancel}
+    >Cancel</button>
+<button 
+className={style.bg_btn}
+onClick={handleUpload}
+>
+{loading ? "Uploading" : "Upload"}
+  </button>
+          </>
+
+        ):
+        (
+<>
+<button 
     className={style.bg_btn}
     onClick={handleRemove}
     >Remove</button>
@@ -141,6 +216,10 @@ onClick={() => uploader?.current?.click()}
                         ref={uploader}
                       />
   </button>
+</>
+        )
+      }
+  
     </div>
 <h1>Background Image</h1>
   </div>

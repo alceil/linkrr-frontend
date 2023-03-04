@@ -1,10 +1,13 @@
 import React,{useEffect,useRef} from 'react'
 import style from './styles.module.css'
+import axios from "axios";
 import { useAdmin } from "../../contexts/adminContext";
 import { BsPersonFill } from "react-icons/bs";
+import { useData } from '../../contexts/dataContext';
 const BioEdit = () => {
   const uploader = useRef(null);
   const { state, dispatch } = useAdmin();
+  const { userData, updateProfile } = useData();
    const { profileName,about, imgFile,imgSrc} =state;
   const handleFile = (event) => {
     event.preventDefault();
@@ -13,8 +16,53 @@ const BioEdit = () => {
   };
 
   const handleCancel = () => {
-    dispatch({ type: "field", field: "imgSrc", value:null });
+    dispatch({ type: "field", field: "imgSrc", value: userData.page.imgSrc });
     dispatch({ type: "field", field: "imgFile", value: null });
+  };
+
+
+  const handleRemove = async () => {
+    dispatch({ type: "field", field: "imgSrc", value: null });
+
+    await updateProfile({
+      page: { ...userData.page, imgSrc: null },
+    });
+  };
+
+  const handleUpload = () => {
+    dispatch({ type: "update" });
+
+    if (imgFile) {
+          try {
+            let reader = new FileReader();
+reader.readAsDataURL(imgFile);
+            reader.onload = async () => {
+              const formData = new FormData();
+              formData.append(
+                "image",
+                reader.result.slice(imgFile.type === "image/png" ? 22 : 23)
+              );
+              formData.append("name", imgFile.name);
+              formData.append("key", process.env.REACT_APP_PUBLIC_IMGBB_STORAGE_KEY);
+              console.log(process.env.REACT_APP_PUBLIC_IMGBB_STORAGE_KEY);
+              const response =await axios
+                .post("https://api.imgbb.com/1/upload", formData);
+                let imageUrl = response.data.data.url;
+            if(imageUrl){
+              console.log("profile updated")
+              await updateProfile(userData.userId, {
+                page: { ...userData.page, imgSrc: imageUrl },
+              });
+            }
+            
+               
+            };
+
+            dispatch({ type: "success" });
+          } catch (error) {
+            dispatch({ type: "error", error: error.message });
+          }
+    }
   };
   useEffect(() => {
     if (imgFile) {
@@ -41,9 +89,30 @@ const BioEdit = () => {
   }
 
   <div>
-  <button 
+
+
+    {
+      imgFile?
+      (
+<>
+<button 
    className={style.bio_btn}
    onClick={handleCancel}>
+    Cancel
+    </button>
+<button 
+                  onClick={handleUpload}
+                  className={style.bio_btn} >
+
+  Upload
+  </button>
+</>
+      ):
+      (
+<>
+<button 
+   className={style.bio_btn}
+   onClick={handleRemove}>
     Remove
     </button>
 <button 
@@ -62,6 +131,10 @@ const BioEdit = () => {
                 />
 
   </button>
+</>
+      )
+    }
+
   </div>
 
 </div>
