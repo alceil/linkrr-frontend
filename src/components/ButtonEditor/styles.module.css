@@ -6,6 +6,7 @@
     margin: 5px;
     width: 100%;
     padding: 16px;
+    border: 1px solid rgb(209 213 219 / 1);
 
 }
 
@@ -25,10 +26,7 @@
         width: 24px;
     border-radius: 2px;
     margin: 5px;
-    border: 2px;
-    border-style: solid;
-    border-width: thin;
-    border-color: grey;
+    border: 1px solid rgb(209 213 219 / 1);
     }
     
     .btn_styles_group{

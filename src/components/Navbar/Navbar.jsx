@@ -7,7 +7,7 @@ const Navbar = () => {
   const {showProfile, setShowProfile } =useView() ;
   const {logOut,currentUser} = useAuth();
   return (
-    <div className={style.nav_container}>
+    <header className={style.nav_container}>
         <h1 className={style.logo}>Linkrr</h1>
           {currentUser?
             (
@@ -30,7 +30,14 @@ const Navbar = () => {
               </div>
             ):(
               <div>
-                              <button className={style.logout_btn}>Log Out</button>
+                             <Link to="/" style={{ textDecoration: 'none' }}>
+                             <button 
+                              className={style.logout_btn}
+                              onClick={logOut}
+                              >Log Out</button>
+
+                             </Link>
+
               <Link to="/profile" style={{ textDecoration: 'none' }}>
               <button className={style.nav_btn} onClick={()=>setShowProfile(!showProfile)}>My Account</button>
 
@@ -42,7 +49,7 @@ const Navbar = () => {
           }
      
 
-    </div>
+    </header>
   )
 }
 

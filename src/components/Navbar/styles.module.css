@@ -1,9 +1,13 @@
 .nav_container{
-    /* position: sticky;
-     top: 0; */
+     position: sticky;
+     top: 0;
      display: flex;
      justify-content: space-between;
      align-items: center;
+     width: 100%;
+     z-index: 10;
+     background-color:white;
+     border-bottom: 1px solid rgb(209 213 219 / 1);
     height: 70px;
 }
 

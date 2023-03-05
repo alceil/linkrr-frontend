@@ -90,8 +90,8 @@ reader.readAsDataURL(imgFile);
 
   <div>
 
-
-    {
+<div className={style.bio_btn_group}>
+{
       imgFile?
       (
 <>
@@ -134,6 +134,8 @@ reader.readAsDataURL(imgFile);
 </>
       )
     }
+</div>
+
 
   </div>
 

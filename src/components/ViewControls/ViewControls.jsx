@@ -38,9 +38,11 @@ const  ViewControls = () => {
     }
   };
   return (
-    <div className={style.viewcontrols_container}>
 
+    
+    <div className={style.viewcontrols_container}>
 {
+ 
   showDesign?(
     <div className={style.viewcontrols_btn} onClick={()=>setShowDesign(!showDesign)}>
     <HiOutlineLink/>
@@ -74,6 +76,7 @@ const  ViewControls = () => {
     {loading ? "Saving" : "Save"}
       </span>
     </div>
+
   </div>
   )
 }

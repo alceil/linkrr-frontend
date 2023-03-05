@@ -1,7 +1,8 @@
 .mobilepreview_container{
+    margin-top: 16px;
     background-color: #9ca3af;
-    width: 183px;
-    height: 400px;
+    width: 195px;
+    height: 422px;
     border-radius: 10px;
 }
 
