@@ -11,13 +11,15 @@
 }
 
 .changeprofile_container{
-    position: relative;
-
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
+.profile_container{
+    display: flex;
+    justify-content: center;
+}
 
 .bio_input_field{
     border: none;
@@ -39,7 +41,8 @@ margin: 10px;
     font-weight: bold;
     padding: 8px 16px;
     border: none;
-    flex: 0 0 100%;
+    flex: 0 0 150%;
+
     outline: none;
     border-radius: 10px;
     background-color: #7964ff;
@@ -48,16 +51,16 @@ margin: 10px;
     width: 100%;
 }
 .bio_btn_group{
-
     display: flex;
-  
     align-items: center;
     justify-content: center;
 }
 .profile_pic{
+    position: relative;
+    right:  200px;
     border-radius: 50%;
-    width: 78px;
-    height: 78px;
+    width: 98px;
+    height: 98px;
     border: 1px solid rgb(209 213 219 / 1);
 display: flex;
 flex-direction: column;

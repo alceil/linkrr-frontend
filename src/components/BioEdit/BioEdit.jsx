@@ -77,7 +77,7 @@ reader.readAsDataURL(imgFile);
   }, [imgFile]);
   return (
 <div className={style.bio_container}>
-
+<div className={style.profile_container}>
 <div className={style.changeprofile_container}>
 {imgSrc?(<img
     className={style.profile_pic}
@@ -134,6 +134,9 @@ reader.readAsDataURL(imgFile);
 </>
       )
     }
+</div>
+
+
 </div>
 
 
