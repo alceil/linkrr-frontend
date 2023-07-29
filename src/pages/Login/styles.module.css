@@ -21,6 +21,7 @@
 background-color: var(--input-field-color);
 padding: 16px;
 margin-bottom: 10px;
+color: var(--font-color);
 
 }
 .input_container {
