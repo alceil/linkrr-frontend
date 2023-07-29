@@ -1,7 +1,7 @@
 .main_container{
     display: grid;
-      grid-template-columns: auto auto auto;
-    background-color: #e5e7eb;
+      grid-template-columns: 1fr 2fr;
+    background-color:var(--linkr-bg-color);
     min-height: 100vh;
     width: 100%;
 }
@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     /* flex: 0 0 50%; */
+    
     padding: 1rem;
     width: 100%;
 }
@@ -23,6 +24,21 @@ right:  300px;
     /* flex: 0 20 40%;
     margin-left: 100px; */
 }
+
+
+@media screen and (max-width: 1300px) {
+    .right_container{
+display: none;
+    }
+      /* Update grid-template-columns and width for left_container */
+  .main_container {
+    grid-template-columns: 1fr; /* Make left_container take the whole width */
+  }
+
+  .left_container {
+    width: 100%; /* Take full width when right_container is hidden */
+  }
+  }
 
 
 

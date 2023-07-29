@@ -3,12 +3,12 @@
     display: flex;
 	justify-content: center;
 	align-items: center;
-    background-color: #e5e7eb;
+    background-color: var(--linkr-bg-color);
 	min-height: 100vh;
     width: 100%;
 }
 .login_container{
-    background-color: #ffff;
+    background-color: var(--card-bg-color);
     padding: 40px;
     width: 40%;
     border-radius: 20px;
@@ -46,7 +46,6 @@ align-content: space-between;
 .login_content{
     display: flex;
     font-size: 14px;
-    font-family: 'Nunito';
     font-weight: bold;
 }
 

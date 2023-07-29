@@ -1,12 +1,11 @@
 .background_editor{
     display: flex;
     flex-direction: row;
-    background-color: #ffff;
+    background-color:var( --card-bg-color);
     border-radius: 10px;
     margin: 5px;
-    width: 100%;
     padding: 16px;
-    border: 1px solid rgb(209 213 219 / 1);
+    border: 1px solid var(--card-border-color);
 }
 
 .backgroundcolour_editor{
@@ -45,4 +44,8 @@
         object-fit: cover;
         border-radius: 1.5rem;
         
+    }
+
+    h1{
+        color: var(--font-color);
     }

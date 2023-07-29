@@ -21,13 +21,14 @@ const Login = () => {
           dispatch({ type: "success" });
           navigate("/admin");
         } catch (error) {
-          const message = error.message
-            .split(/(?<=\/)(.*?)(?=\))/gm)[1]
-            .replace(/-/g, " ");
-          dispatch({
-            type: "error",
-            error: message,
-          });
+          console.log(error)
+          // const message = error.message
+          //   .split(/(?<=\/)(.*?)(?=\))/gm)[1]
+          //   .replace(/-/g, " ");
+          // dispatch({
+          //   type: "error",
+          //   error: message,
+          // });
         }
 
     };

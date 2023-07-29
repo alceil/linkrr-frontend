@@ -28,7 +28,7 @@ export function AuthProvider({ children }) {
       console.log(initialData)
       try {
           const response = await axios.post(
-            "http://localhost:5000/auth/register",initialData);
+            "https://linkrr-backend-production.up.railway.app/auth/register",initialData);
             console.log(initialData)
             console.log(response.data.user)
             localStorage.setItem("linkrruser", JSON.stringify(response.data.user));
@@ -45,7 +45,7 @@ export function AuthProvider({ children }) {
     {
       try {
           const response = await axios.post(
-            "http://localhost:5000/auth/login",initialData);
+            "https://linkrr-backend-production.up.railway.app/auth/login",initialData);
             console.log(initialData)
             console.log(response)
             console.log(response.data.user)

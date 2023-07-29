@@ -17,6 +17,7 @@ import EditableLinkCard from '../../components/EditableLinkCard/EditableLinkCard
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { useAdmin } from '../../contexts/adminContext';
 import PagePreview from '../../components/PagePreview/PagePreview'
+import MobileControl from '../../components/MobileControl/MobileControl'
 
 
 const Admin = () => {
@@ -109,6 +110,8 @@ return (
 <div>
 </div>
         </div>
+
+        <MobileControl/>
     </div>
     )
 

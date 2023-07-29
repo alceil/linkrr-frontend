@@ -3,12 +3,12 @@
     display: flex;
 	justify-content: center;
 	align-items: center;
-    background-color: #e5e7eb;
+    background-color:var(--linkr-bg-color);
 	min-height: 100vh;
     width: 100%;
 }
 .signup_container{
-    background-color: #ffff;
+    background-color: var(--card-bg-color);
     padding: 16px;
     border-radius: 20px;
     
@@ -51,7 +51,6 @@ align-content: space-between;
 }
 
 .signup_content{
-font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     font-style: inherit;
 }

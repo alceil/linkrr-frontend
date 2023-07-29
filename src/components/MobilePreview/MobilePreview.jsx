@@ -71,6 +71,7 @@ const {
   href={`https://twitter.com/${socials.twitter}`}>
     <FiTwitter
 size={25}
+style={{color:fontColor}}
 />
   </a>
 )} 
@@ -81,6 +82,7 @@ size={25}
   href={socials.linkedin}>
 <FiLinkedin
 size={25}
+style={{color:fontColor}}
 />
   </a>
 
@@ -93,6 +95,7 @@ size={25}
   href={`https://github.com/${socials.github}`}>
 <FiGithub
 size={25}
+style={{color:fontColor}}
 />
   </a>
 
@@ -105,6 +108,7 @@ size={25}
   href={`https://instagram.com/${socials.instagram}`}>
 <FiInstagram
 size={25}
+style={{color:fontColor}}
 />
   </a>
 
@@ -116,6 +120,7 @@ size={25}
   href={`https://facebook.com/${socials.facebook}`}>
 <FiFacebook
 size={25}
+style={{color:fontColor}}
 />
   </a>
 

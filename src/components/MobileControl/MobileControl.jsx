@@ -10,7 +10,7 @@ import {
 import { ImSpinner } from "react-icons/im";
 import { useAdmin } from '../../contexts/adminContext';
 import { useData } from '../../contexts/dataContext';
-const  ViewControls = () => {
+const  MobileControl = () => {
   const { userData, updateProfile } = useData();
   const { state, dispatch } = useAdmin();
   const { profileName, about, links, appearance, socials, loading } =
@@ -81,4 +81,4 @@ const  ViewControls = () => {
   )
 }
 
-export default ViewControls
+export default MobileControl

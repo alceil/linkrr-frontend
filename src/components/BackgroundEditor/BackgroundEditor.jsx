@@ -161,7 +161,6 @@ onChange={(color)=>{
 <h1>
   Background Colour
 </h1>
-<div className={style.color}> </div>
   </div>
   <div className={style.backgroundimage_editor}>
     {
@@ -170,14 +169,10 @@ onChange={(color)=>{
       alt=""
       className={style.backgroundImage}
     />):(
-    <BiImageAdd size={200}/>
+    <BiImageAdd size={200} style={{color:'grey'}}/>
     )
     }
     <div className={style.bg_btngrp}>
-
-
-
-
       {
         bgImgFile?
         (

@@ -1,4 +1,25 @@
 body{
     margin: 0;
-    
+    font-family: 'Nunito';
+    --header-bg-color: #fff;
+    --card-bg-color: #fff;
+    --linkr-bg-color: #E5E7EB;
+    --card-border-color: rgb(209 213 219 / 1);
+    --header-border-color: rgb(209 213 219 / 1);
+    --font-color: #333;
+    --input-field-color: #e5e7eb;
+}
+
+.dark{
+    --header-bg-color: #0A1929;
+    --card-bg-color: #132F4C;
+    --linkr-bg-color:#0A1929;
+    --card-border-color: rgb(80 144 211/1);
+    --header-border-color:rgb(19 47 76/1);
+    --font-color: #fff;
+    --input-field-color: #0A1929;
+}
+
+a{
+    text-decoration: none;
 }

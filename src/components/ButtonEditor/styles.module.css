@@ -1,12 +1,11 @@
 .btn_editor{
     display: flex;
     flex-direction: row;
-    background-color: #ffff;
+    background-color: var(--card-bg-color);
     border-radius: 10px;
     margin: 5px;
-    width: 100%;
     padding: 16px;
-    border: 1px solid rgb(209 213 219 / 1);
+    border: 1px solid var(--card-border-color);
 
 }
 
@@ -43,7 +42,7 @@
         outline: none;
         border-radius: 10px;
         background-color: red;
-        color: black;
+        color: var(--font-color);
         margin: 5px;
     }
     .round_btn{
@@ -53,5 +52,5 @@
     .outline_btn{
         border-color: red;
         border-style: solid;
-        background-color: white;
+        background-color: var(--card-bg-color);
     }

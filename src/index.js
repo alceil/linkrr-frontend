@@ -7,9 +7,11 @@ import { AdminProvider } from "./contexts/adminContext";
 import { ViewProvider } from "./contexts/viewContext";
 import { AuthProvider } from './contexts/authContext';
 import { DataProvider } from './contexts/dataContext';
+import { DarkModeProvider } from "./contexts/darkModeContext";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+<DarkModeProvider>
 
 <AuthProvider>
 <DataProvider>
@@ -27,6 +29,7 @@ root.render(
     </DataProvider>
 
     </AuthProvider>
+    </DarkModeProvider>
 
   </React.StrictMode>
 );

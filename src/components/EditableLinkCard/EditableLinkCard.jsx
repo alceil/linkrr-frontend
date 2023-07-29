@@ -108,20 +108,20 @@ const EditableLinkCard = ({id,Link}) => {
   </div>
   ):(
     <div className={style.editable_linkcard_preview}>
-    <HiOutlinePencil onClick={()=>{setShowEditCard(!showEditCard)}}/>
+    <HiOutlinePencil onClick={()=>{setShowEditCard(!showEditCard)}} style={{color:'grey'}}/>
     <div className={style.editbtn_group}>
     <label className={style.checkbox_label}>
                 <input type="checkbox" className={style.checkbox} checked={active}  onChange={handleChecked} />
                 <span className={style.checkbox_span}/>
             </label>
-    <GoTrashcan className={style.edit_icon} onClick={handleRemoveLink}/>
+    <GoTrashcan className={style.edit_icon} onClick={handleRemoveLink} style={{color:'grey'}}/>
     
     </div>
       </div>
 
   )
 }
-<MdDragIndicator size={40}/>
+<MdDragIndicator size={40} style={{color:'grey'}}/>
 </div>
 // </Draggable>
   )

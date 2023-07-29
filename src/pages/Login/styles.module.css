@@ -3,21 +3,22 @@
     display: flex;
 	justify-content: center;
 	align-items: center;
-    background-color: #e5e7eb;
+    background-color: var(--linkr-bg-color);
 	min-height: 100vh;
     width: 100%;
 }
 .login_container{
-    background-color: #ffff;
-    padding: 16px;
+    background-color: var(--card-bg-color);
+    padding: 2rem;
     border-radius: 20px;
+    border: 1px solid var(--card-border-color);
     
 }
 .input_field {
     border: none;
     outline: none;
     border-radius: 5px;
-background-color: #e5e7eb;
+background-color: var(--input-field-color);
 padding: 16px;
 margin-bottom: 10px;
 
@@ -50,12 +51,21 @@ align-content: space-between;
     color: white;
 }
 
-.login_content{
-font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
-    font-style: inherit;
-}
 
 a{
-    color: black;
+    color: var(--font-color);
+}
+
+.login_container h1{
+    font-size:1rem ;
+    font-weight: bold;
+}
+
+/* .login_container h2{
+    font-size:1rem ;
+    font-weight: bold;
+} */
+
+.login_content{
+    color:var(--font-color);
 }

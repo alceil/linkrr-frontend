@@ -1,0 +1,32 @@
+.viewcontrols_container{
+    display: none;
+}
+
+.viewcontrols_btn{
+    display: flex;
+    align-items: center;
+}
+
+.btn_title{
+    margin-left: 5px;
+    color: var(--font-color);
+}
+
+
+@media screen and (max-width: 1300px) {
+    .viewcontrols_container{
+        position: fixed;
+        z-index: 50;
+        bottom: 0;
+        display: flex;
+        flex-direction: row;
+        background-color: var(--card-bg-color);
+        border-radius: 10px;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 16px;
+        box-sizing: border-box;
+        border: 1px solid var(--card-border-color);
+    }
+  }

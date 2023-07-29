@@ -6,7 +6,7 @@ const LinkShare = ({username}) => {
   return (
     <div className={style.share_link}>
     <a href ={`https://linkpile-bffd7.web.app/${username}`} className={style.link}>{`https://linkpile-bffd7.web.app/${username}`}</a>
-    <BiCopy/>
+    <BiCopy style={{color:'grey'}}/>
               </div>
   )
 }

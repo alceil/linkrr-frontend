@@ -3,12 +3,11 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-    background-color: #ffff;
+    background-color: var(--card-bg-color);
     border-radius: 10px;
     margin: 5px;
-    width: 100%;
     padding: 16px;
-    border: 1px solid rgb(209 213 219 / 1);
+    border: 1px solid var(--card-border-color);
 }
 
 .link{
@@ -16,3 +15,6 @@
     margin-left: 10px;
 }
 
+.share_link a{
+    color: var(--font-color);
+}

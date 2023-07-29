@@ -1,15 +1,15 @@
 .viewcontrols_container{
     display: flex;
     flex-direction: row;
-    background-color: #ffff;
+    background-color: var(--card-bg-color);
     border-radius: 10px;
     align-items: center;
     justify-content: space-between;
     margin: 5px;
     margin-top: 16px;
     width: 100%;
-    padding: 16px;
-    border: 1px solid rgb(209 213 219 / 1);
+    padding: 1rem;
+    border: 1px solid var(--card-border-color);
 }
 
 .viewcontrols_btn{
@@ -19,4 +19,5 @@
 
 .btn_title{
     margin-left: 5px;
+    color: var(--font-color);
 }

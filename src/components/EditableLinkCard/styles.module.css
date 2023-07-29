@@ -3,22 +3,23 @@
     flex-direction: row;
 justify-content: space-between; 
 align-items: center;
- background-color: #ffff;
+ background-color: var(--card-bg-color);
     border-radius: 10px;
     margin: 5px;
     width: 100%;
     padding: 16px;
-    border: 1px solid rgb(209 213 219 / 1);
+    border: 1px solid var(--card-border-color);
 }
 .editable_linkcard{
     display: flex;
     flex-direction: column;
 
- background-color: #ffff;
+ background-color: var(--card-bg-color);;
     border-radius: 10px;
     margin: 5px;
     width: 100%;
     padding: 16px;
+    border: 1px solid var(--card-border-color);
     
 }
 
@@ -80,7 +81,7 @@ align-items: center;
     border: none;
     outline: none;
     border-radius: 5px;
-background-color: #e5e7eb;
+background-color: var(--input-field-color);
 padding: 16px;
 margin: 10px;
 }

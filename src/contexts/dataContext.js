@@ -15,7 +15,7 @@ export function DataProvider({ children }) {
    
     useEffect(() => {
         if (currentUser)  {
-            fetch(`http://localhost:5000/auth/user/${currentUser._id}`)
+            fetch(`https://linkrr-backend-production.up.railway.app/auth/user/${currentUser._id}`)
             .then(response => response.json())
                 // 4. Setting *dogImage* to the image url that we received from the response above
             .then(data => {
@@ -30,7 +30,7 @@ export function DataProvider({ children }) {
       async function updateProfile(initialData){
         try {
             const response = await axios.put(
-              `http://localhost:5000/auth/updateProfilePage/${userData._id}`,initialData);
+              `https://linkrr-backend-production.up.railway.app/auth/updateProfilePage/${userData._id}`,initialData);
               console.log(response)
             // return response.data;
           } catch (error) {

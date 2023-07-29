@@ -38,10 +38,13 @@ justify-content: center;
 }
 
 .website_name{
-    font-size: 16px;
-    font-weight: bold;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: lightgreen;
+  background-image: linear-gradient(to right, #f43f5e,  #f44336, #60a5fa);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 16px; /* Adjust the font size as needed */
+  font-weight: 800; /* Adjust the font weight as needed */
+  font-family: 'Nunito', sans-serif;
 }
 
 .about{
